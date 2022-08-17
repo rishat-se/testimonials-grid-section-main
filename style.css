@@ -1,5 +1,183 @@
+:root {
+    /* Primary */
+    --moderate-violet: hsl(263, 55%, 52%);
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+    /* Neutral */
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+    --ff-primary: 'Barlow Semi Condensed', sans-serif;
+    /* Transparent */
+    --white-transp-50: hsl(0, 0%, 100%, 0.5);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    min-height: 100vh;
+    background-color: var(--light-grayish-blue);
+    color: var(--white);
+    display: grid;
+    justify-items: center;
+/*    background-image: url(design/mobile-design.jpg); */
+}
+
+main {
+    max-width: 69.375rem;
+    margin-inline: 1.5rem;
+    margin-block: 4.5rem;
+    display: grid;
+    gap: 1.875rem;
+}
+
+.review {
+    padding-block-start: 1.5rem;
+    padding-block-end: 2rem;
+    padding-inline: 1.875rem;
+    border-radius: 0.5rem;
+    box-shadow: 40px 30px 40px rgba(0, 0, 0, 0.1);
+}
+
+.review header {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: center;
+}
+
+.review img {
+    border: 2px solid var(--white-transp-50);
+    border-radius: 1rem;
+    width: 2rem;
+    grid-row: 1 / span 2;
+}
+
+.review-patrick img {
+    border-color: var(--moderate-violet);
+}
+
+.review h2, .review span {
+    padding-inline-start: 1rem;
+    grid-column: 2;
+    white-space: nowrap;
+}
+
+.review h2 {
+    font-size: inherit;
+}
+
+.review span {
+    opacity: 0.5;
+    font-size: 0.6875rem;
+}
+
+.review blockquote b {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: block;
+    padding-block: 1.375rem;
+}
+
+.inquotations {
+    opacity: 0.7;
+}
+
+.review-daniel {
+    background-color: var(--moderate-violet);
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: right calc(25% - 26px) top 0%;
+}
+
+.review-jonathan {
+    background-color: var(--very-dark-grayish-blue);
+}
+
+.review-jeanette {
+    background-color: var(--white);
+    color: var(--very-dark-grayish-blue);
+}
+
+.review-patrick {
+    background-color: var(--very-dark-blackish-blue);
+}
+
+.review-kira {
+    background-color: var(--white);
+    color: var(--very-dark-grayish-blue);
+}
+
+.sr-only {
+    display: none;
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; display: none; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (min-width: 40em) {
+    main {
+        margin-block: 10.3125rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "daniel jonathan"
+            "daniel patrick" 
+            "jeanette patrick"
+            "kira kira" ;
+    }
+    .review-daniel {
+        grid-area: daniel;
+    }
+
+    .review-jonathan {
+        grid-area: jonathan;
+    }
+
+    .review-jeanette {
+        grid-area: jeanette;
+    }
+
+    .review-patrick {
+        grid-area: patrick;
+    }
+
+    .review-kira {
+        grid-area: kira;
+    }
+}
 
 
-.sr-only {display: none;}
-.attribution { font-size: 11px; text-align: center; display: none; }
-.attribution a { color: hsl(228, 45%, 44%); }
+@media screen and (min-width: 54em) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "daniel daniel jonathan"
+            "jeanette patrick patrick"
+            "kira kira kira" ;
+    }
+    
+}
+
+@media screen and (min-width: 68em) {
+    main {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "daniel daniel jonathan kira"
+            "jeanette patrick patrick kira" ;
+    }
+    
+}
